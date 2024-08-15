@@ -1,0 +1,50 @@
+{% extends 'agency/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+      <div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <h4 class="fw-bold py-3 mb-4">AD Types</h4>
+            <div class="card">
+              <h5 class="card-header">All Ad Types</h5>
+                <!-- <div class="table-responsive text-nowrap"> -->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Customer Name</th>
+                        <th>Ad Title</th>
+                        <th>Ad Size</th>
+                        <th>Page No.</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Mode</th>
+                        <th>Order Date</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+
+                       {% for row in result %}
+                        <tr>
+                          <td><strong>{{row.id}}</strong></td>
+                          <td>{{row.customers.user.first_name}}  {{row.customers.user.last_name}}</td>
+                          <td>{{row.subject}}</td>
+                          <td>{{row.page_no}}</td>
+                          <td>{{row.size}}</td>
+                          <td>{{row.description}}</td>
+                          <td>{{row.price}}</td>
+                          <td>{{row.mode}}</td>
+                          <td>{{row.order_date}}</td>
+                        </tr>
+                      {% endfor %}
+
+                    </tbody>
+                  </table>
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+
+{% endblock %}

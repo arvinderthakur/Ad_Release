@@ -1,0 +1,86 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+      <div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <h4 class="fw-bold py-3 mb-4">CUSTOMERS</h4>
+              <div class="card">
+                <h5 class="card-header">All Customers</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Gender</th>
+                        <th>View Details</th>
+                      </tr>
+                    </thead>
+                    <!-- <tbody class="table-border-bottom-0"> -->
+                      {% for row in result %}
+                      <tr>
+                        <td><strong>{{row.id}}</strong></td>
+                        <td>{{row.user.first_name}}</td>
+                        <td>{{row.user.last_name}}</td>
+                        <td>{{row.user.email}}</td>
+                        <td>{{row.contact}}</td>
+                        <td>{{row.gender}}</td>
+                        <!-- <td>00-00-0000</td>
+                        <td>janvi@gmail.com</td>
+                        <td>1020304050</td>
+                        <td>Plot no. 280<br> SG Highway,<br> Nr. YMCA Club <br> Makarba</td> -->
+                        <td><a href="/myadmin/view_customers/{{row.id}}">View Details</a></td>
+                      </tr>
+                      {% endfor %}
+
+                     
+
+                     <!--  <tr>
+                        <td>
+                          <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Bootstrap Project</strong>
+                        </td>
+                        <td>Jerry Milton</td>
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
+                              <img src="{% static 'myadmin/assets/img/avatars/5.png' %}" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
+                            <img src="{% static 'myadmin/assets/img/avatars/6.png' %}" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
+                              <img src="{% static 'myadmin/assets/img/avatars/7.png' %}" alt="Avatar" class="rounded-circle" />
+                            </li>
+                          </ul>
+                        </td>
+                        <td><span class="badge bg-label-warning me-1">Pending</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-2"></i> Edit</a>
+                              <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-2"></i> Delete</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr> -->
+
+
+                    <!-- </tbody> -->
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+{% endblock %}
+

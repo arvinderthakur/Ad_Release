@@ -1,0 +1,156 @@
+{% extends 'agency/common/layout.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="gradient-custom ">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">Add New Ad Type</h3>
+            <form method="post" action="/agency/add_new_ad_type_update/{{result.id}}" enctype="multipart/form-data">
+              {% csrf_token %}
+
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <select id="size" name="size" class="form-select form-control">
+                      <option>Default select</option>
+                      <option value="2 × 2" {% if result.size == '2 × 2' %} selected {% endif %}>2 × 2</option>
+                      <option value="4 × 4" {% if result.size == '4 × 4' %} selected {% endif %}>4 × 4</option>
+                      <option value="6 × 6" {% if result.size == '6 × 6' %} selected {% endif %}>6 × 6</option>
+                      <option value="8 × 8" {% if result.size == '8 × 8' %} selected {% endif %}>8 × 8</option>
+                      <option value="6 × 3" {% if result.size == '6 × 3' %} selected {% endif %}>6 × 3</option>
+                      <option value="4 × 8" {% if result.size == '4 × 8' %} selected {% endif %}>4 × 8</option>
+                    </select>
+                    <label for="size" class="form-label">Size</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <select id="page" name="page" class="form-select form-control">
+                      <option>Default select</option>
+                      <option value="1" {% if result.page_no == '1' %} selected {% endif %}>One</option>
+                      <option value="2" {% if result.page_no == '2' %} selected {% endif %}>Two</option>
+                      <option value="3" {% if result.page_no == '3' %} selected {% endif %}>Three</option>
+                      <option value="4" {% if result.page_no == '4' %} selected {% endif %}>Four</option>
+                      <option value="5" {% if result.page_no == '5' %} selected {% endif %}>Five</option>
+                      <option value="6" {% if result.page_no == '6' %} selected {% endif %}>Six</option>
+                      <option value="7" {% if result.page_no == '7' %} selected {% endif %}>Seven</option>
+                      <option value="8" {% if result.page_no == '8' %} selected {% endif %}>Eight</option>
+                      <option value="9" {% if result.page_no == '9' %} selected {% endif %}>Nine</option>
+                      <option value="10" {% if result.page_no == '10' %} selected {% endif %}>Ten</option>
+                      <option value="11" {% if result.page_no == '11' %} selected {% endif %}>Eleven</option>
+                      <option value="12" {% if result.page_no == '12' %} selected {% endif %}>Twelve</option>
+                      <option value="13" {% if result.page_no == '13' %} selected {% endif %}>Thirteen</option>
+                      <option value="14" {% if result.page_no == '14' %} selected {% endif %}>Fourteen</option>
+                      <option value="15" {% if result.page_no == '15' %} selected {% endif %}>Fifteen</option>
+                      <option value="16" {% if result.page_no == '16' %} selected {% endif %}>Sixteen</option>
+                      <option value="17" {% if result.page_no == '17' %} selected {% endif %}>Seventeen</option>
+                      <option value="18" {% if result.page_no == '18' %} selected {% endif %}>Eighteen</option>
+                      <option value="19" {% if result.page_no == '19' %} selected {% endif %}>Nineteen</option>
+                      <option value="20" {% if result.page_no == '20' %} selected {% endif %}>Twenty</option>
+                      <option value="21" {% if result.page_no == '21' %} selected {% endif %}>Twenty One</option>
+                      <option value="22" {% if result.page_no == '22' %} selected {% endif %}>Twenty Two</option>
+                      <option value="23" {% if result.page_no == '23' %} selected {% endif %}>Twenty Three</option>
+                      <option value="24" {% if result.page_no == '24' %} selected {% endif %}>Twenty Four</option>
+                    </select>
+                    <label for="page" class="form-label">Page No.</label>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <textarea class="form-control form-control-lg" rows="4" name="description" id="description" required="">{{result.description}}</textarea>
+                    <label class="form-label">Description</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="text" id="price" name="price" class="form-control form-control-lg" / value="{{result.price}}">
+                    <label class="form-label" for="price">Price</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <div class="form-outline">
+                    <select id="mode" name="mode" class="form-select form-control">
+                      <option>Default select</option>
+                      <option value="Online Newspaper" {% if result.mode == 'Online Newspaper' %} selected {% endif %}>Online Newspaper</option>
+                      <option value="Offline Newspaper" {% if result.mode == 'Offline Newspaper' %} selected {% endif %}>Offline Newspaper</option>
+                    </select>
+                    <label for="mode" class="form-label">Mode</label>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="file" name="image" id="image">
+                    <label for="image" class="form-label">Image</label>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="mt-4" align="center">
+                <input class="btn btn-primary btn-lg" type="submit" name="submit" id="submit" value="Submit" />
+              </div>
+
+
+
+
+
+
+
+
+            
+
+
+
+
+              
+              
+        
+              
+
+             
+
+              <!-- <div class="row">
+                <div class="col-md-6">
+
+                  <select class="select form-control-lg">
+                    <option value="1" disabled>Choose option</option>
+                    <option value="2">Subject 1</option>
+                    <option value="3">Subject 2</option>
+                    <option value="4">Subject 3</option>
+                  </select>
+                  <label class="form-label select-label">Choose option</label>
+ 
+                </div>
+              </div> -->
+
+              
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="gradient-custom ">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-6">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-2 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">Add State</h3>
+            <form method="post" action="/myadmin/city_store">
+              {% csrf_token %}
+
+              <div class="row">
+                <div class="col-md-12 mb-4 mx-auto">
+                  <div class="form-outline">
+                  	<label class="form-label" for="city">City Name</label>
+                    <input type="text" id="city" name="city" class="form-control form-control-lg" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-4 mx-auto">
+                  <div class="form-outline">
+                  	<label class="form-label" for="states">State Name</label>
+                    <select id="states" name="states" class="form-control form-control-lg">
+										<option class="text-center">------SELECT CITY------</option>
+											{% for row in result %}
+										<option value="{{row.id}}">{{row.states}}</option>
+										{% endfor %}
+									</select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-2" align="center">
+                <input class="btn btn-primary btn-lg" type="submit" name="submit" id="submit" value="Submit" />
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

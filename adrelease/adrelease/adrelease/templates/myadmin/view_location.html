@@ -1,0 +1,40 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <h4 class="fw-bold py-3 mb-4">Location</h4>
+              <div class="card">
+                <h5 class="card-header">All Location</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>States</th>
+                        <th>View cities</th>
+                      </tr>
+                    </thead>
+                    <!-- <tbody class="table-border-bottom-0"> -->
+                      {% for row in result %}
+                      <tr>
+                        <td><strong>{{row.id}}</strong></td>
+                       	<td>{{row.states}}</td>
+                        <!-- <td>00-00-0000</td>
+                        <td>janvi@gmail.com</td>
+                        <td>1020304050</td>
+                        <td>Plot no. 280<br> SG Highway,<br> Nr. YMCA Club <br> Makarba</td>-->
+                        <td><a href="/myadmin/view_city/{{row.id}}">View Details</a></td> 
+                      </tr>
+                      {% endfor %}
+
+                     
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+{% endblock %}
