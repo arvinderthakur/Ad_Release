@@ -1,0 +1,84 @@
+{% extends 'customer/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="section" id="contact">
+    <div class="container" >            
+        <div class="row align-items-center">
+            <div class="col-7 mx-auto">
+                <div class="card shadow">
+                    <div class="card-body d-flex flex-column align-items-center">
+                    <!-- Heading -->
+                    <h2 class="section-title mb-2 mt-3">
+                        Tell us about <span class="font-weight-normal">Our Services</span>
+                    </h2>
+
+                    <!-- Subheading -->
+                    <p class="mb-5 ">
+                        Whether you have questions or you would just like to say hello, contact us.
+                    </p>
+
+                 <!-- / .row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                   <!-- form message -->
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="alert alert-success contact__msg" style="display: none" role="alert">
+                                Your message was sent successfully.
+                            </div>
+                        </div>
+                    </div>
+
+					<form method="post" action="/customer/feedback_store">
+						{% csrf_token %}
+					
+						
+						<div class="col-sm-12 mb-12">
+				            <div class="form-group">
+				                <label class="h6 small d-block text-uppercase">
+				                    Rating
+				                    <span class="text-danger">*</span>
+				                </label>
+
+				                <div class="input-group form-check form-check-inline">
+				                    <input class="form-check-input " name="rating" id="rating" required="" type="radio" value="Excellent">Excellent
+				                    <input class="form-check-input ml-3 " name="rating" id="rating" required="" type="radio" value="Good">Good
+				                    <input class="form-check-input ml-3" name="rating" id="rating" required="" type="radio" value="Average">Average
+				                    <input class="form-check-input ml-3" name="rating" id="rating" required="" type="radio" value="Bad">Bad
+				                    <input class="form-check-input ml-3" name="rating" id="rating" required="" type="radio" value="Poor">Poor
+				                </div>
+				            </div>
+				        </div>
+							
+				    <div class="col-sm-12 mb-12">
+						<div class="form-group">
+				            <label class="h6 small d-block text-uppercase">
+				                Comment
+				                <span class="text-danger">*</span>
+				            </label>
+
+				            <div class="input-group">
+				                <textarea class="form-control" rows="4" name="comment" id="comment" required="" placeholder="Write your comment"></textarea>
+				            </div>
+				        </div>
+				    </div>
+						
+						
+						<div class="col-lg-12 mt-5" align="center">
+                           <input name="submit" type="submit" class="btn btn-primary btn-circled" value="Submit">
+                        </div>
+					</form>
+				
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

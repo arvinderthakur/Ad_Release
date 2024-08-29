@@ -1,0 +1,140 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="gradient-custom ">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-center">Register Here</h3>
+            <form method="post" action="/myadmin/add_agency_store">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="agency_name" name="agency_name" class="form-control form-control-lg" />
+                    <label class="form-label" for="agency_name">Agency Name</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                    <label class="form-label" for="email">Email</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <input type="tel" id="contact" name="contact" class="form-control form-control-lg" />
+                    <label class="form-label" for="contact" >Contact</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="fname" name="fname" class="form-control form-control-lg" />
+                    <label class="form-label" for="fname">Owner's First Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="lname" name="lname" class="form-control form-control-lg" />
+                    <label class="form-label" for="lname">Owner's Last Name</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <textarea class="form-control form-control-lg" rows="4" name="address" id="address" required=""></textarea>
+                    <label class="form-label">Your Address</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <select id="states" name="states" class="form-control form-control-lg">
+                    <option class="text-center">------SELECT State------</option>
+                      {% for row in result %}
+                    <option value="{{row.id}}">{{row.states}}</option>
+                    {% endfor %}
+                  </select>
+                    <label class="form-label" for="state">State</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <select id="city" name="city" class="form-control form-control-lg">
+                    <option class="text-center">------SELECT CITY------</option>
+                      {% for rows in result1 %}
+                    <option value="{{rows.id}}">{{rows.cities}}</option>
+                    {% endfor %}
+                  </select>
+                    <label class="form-label" for="city">City</label>
+                  </div>
+                </div>
+              </div>
+        
+
+              <div class="row">
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="username" name="username" class="form-control form-control-lg" />
+                    <label class="form-label" for="username">Username</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <input type="date" class="form-control form-control-lg" id="establishe_date" name="establishe_date" />
+                    <label for="establishe_date" class="form-label">Establishe Date</label>
+                  </div>
+                </div>
+
+              </div>
+                
+              <div class="row">
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                    <label class="form-label" for="password">Password</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="password" id="cpassword" name="cpassword" class="form-control form-control-lg" />
+                    <label class="form-label" for="cpassword">Confirm Password</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="mt-4 pt-2" align="center">
+                <input class="btn btn-primary btn-lg" type="submit" name="submit" id="submit" value="Submit" />
+              </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

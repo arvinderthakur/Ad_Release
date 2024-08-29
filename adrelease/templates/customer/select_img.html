@@ -1,0 +1,44 @@
+{% extends 'customer/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section class="section" id="process">
+        <div class="container">
+            <div class="row justify-content-center mb-4">
+                <h2 class="section-title">All Advertisement</h2>
+            </div>
+            <div class="select-img-page">
+                <div class="container">
+                        <div class="d-lg-flex">
+                            <div class="d-md-flex align-items-center mb-lg-0 mb-md-5">
+
+                                {% for row in result %}
+
+                                    <div class="card" style="width: 16rem; margin-right: 20px; border: 1px solid grey;">
+                                        <img src="/media/upload/{{row.image_name}}" height="150" class="card-img-top">
+                                        <div class="card-body">
+                                            <h4 class="card-title" align="center">Rs. {{row.price}}/-</h4>
+                                            <ul class="text-dark">
+                                                <li><b>Size : </b>{{row.size}}</li>
+                                                <li><b>Page No : </b>{{row.page_no}}</li>
+                                                <li><b>Type : </b>{{row.mode}}</li>
+                                                <li><b>Agency Name : </b>{{row.company.agency_name}}</li>
+                                            </ul>
+                                             <a href="/customer/order/{{row.id}}" class="btn btn-primary btn-block">Select Me</a>
+                                        </div>
+                                    </div>
+
+                                {% endfor %}
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+{% endblock %}

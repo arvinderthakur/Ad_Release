@@ -1,0 +1,50 @@
+{% extends 'myadmin/common/layout.html' %}
+{% block content %}
+
+        <div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <h4 class="fw-bold py-3 mb-4">All Customers</h4>
+              <div class="card">
+                <h5 class="card-header">Customer</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+      <tbody class="table-border-bottom-0">
+        <tr class="active">
+          <th scope="row">id</th>
+          <td>{{result.user.id}}</td>
+        </tr>
+        <tr>
+          <th scope="row">FName</th>
+          <td>{{result.user.first_name}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Lname</th>
+          <td>{{result.user.last_name}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Gender</th>
+          <td>{{result.gender}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td>{{result.user.email}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Contact</th>
+          <td>{{result.contact}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Address</th>
+          <td>{{result.address}}</td>
+        </tr>
+        
+        
+      </tbody>
+    </table>
+   </div>
+ </div>
+</div>
+</div>
+
+
+{% endblock %}

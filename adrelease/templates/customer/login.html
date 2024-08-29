@@ -1,0 +1,92 @@
+{% extends 'customer/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+<section class="section" id="contact">
+    <div class="container" >
+		
+                    
+        <div class="row align-items-center">
+            <div class="col-6 mx-auto">
+                <div class="card shadow">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <h1 class="card-title text-center pb-4">Login</h1>
+
+                            <form class="contact_form" method="post" action="/customer/login_check">
+                                {% csrf_token %}
+                                  <!-- Email input -->
+                                  <div class="form-outline mb-4">
+                                    <!-- <label class="form-label">Username</label> -->
+                                    <input type="text" id="email-username" name="email-username" class="form-control" placeholder="Enter Username" />
+                                    <!-- <label class="form-label" for="form2Example1">Email address</label> -->
+                                  </div>
+
+                                  <!-- Password input -->
+                                  <div class="form-outline mb-4">
+                                    <!-- <label class="form-label">Password</label> -->
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"/>
+
+                                  </div>
+
+                                  <!-- 2 column grid layout for inline styling -->
+                                  <div class="row mb-4">
+                                    <div class="col d-flex justify-content-center">
+                                      <!-- Checkbox -->
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                                        <label class="form-check-label" for="form2Example31"> Remember me </label>
+                                      </div>
+                                    </div>
+
+                                   <!--  <div class="col"> -->
+                                      <!-- Simple link -->
+                                    <!--   <a href="/customer/password_reset/$">Forgot password?</a>
+                                    </div>
+                                  </div> -->
+
+                                  <!-- Submit button -->
+                                  <input type="submit" class="btn btn-primary btn-block mb-4" value="login">
+                                 
+
+                                  <!-- Register buttons -->
+                                  <div class="text-center">
+                                    <p>Not a member? <a href="/customer/register">Register</a></p>
+                                    <p>or sign up with:</p>
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                      <i class="fab fa-facebook-f"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                      <i class="fab fa-google"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                      <i class="fab fa-twitter"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                      <i class="fab fa-github"></i>
+                                    <!-- </button> -->
+                                  </div>
+                                </form>
+
+                            </button>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
