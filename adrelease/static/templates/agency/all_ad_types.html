@@ -1,0 +1,86 @@
+{% extends 'agency/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+      <div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <h4 class="fw-bold py-3 mb-4">AD Types</h4>
+            <div class="card">
+              <h5 class="card-header">All Ad Types</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Size</th>
+                        <th>Page No.</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Mode</th>
+                        <th>Image</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+
+                     {% for row in result %}
+                     
+                      <tr>
+                        <td><strong>{{row.id}}</strong></td>
+                        <td>{{row.size}}</td>
+                        <td>{{row.page_no}}</td>   
+                        <td>{{row.description}}</td>
+                        <td>{{row.price}}</td>
+                        <td>{{row.mode}}</td>
+                        <td><img src="/media/upload/{{row.image_name}}" height="100" width="100"></td>
+                        <td><a href="/agency/add_new_ad_type_edit/{{row.id}}">edit</a></td>
+                        <td><a href="/agency/add_new_ad_type_delete/{{row.id}}">delete</a></td>
+                      </tr>
+                      {% endfor %}
+
+                     
+
+                     <!--  <tr>
+                        <td>
+                          <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Bootstrap Project</strong>
+                        </td>
+                        <td>Jerry Milton</td>
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
+                              <img src="{% static 'agency/assets/img/avatars/5.png' %}" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
+                            <img src="{% static 'agency/assets/img/avatars/6.png' %}" alt="Avatar" class="rounded-circle" />
+                            </li>
+                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Christina Parker">
+                              <img src="{% static 'agency/assets/img/avatars/7.png' %}" alt="Avatar" class="rounded-circle" />
+                            </li>
+                          </ul>
+                        </td>
+                        <td><span class="badge bg-label-warning me-1">Pending</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-2"></i> Edit</a>
+                              <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-2"></i> Delete</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr> -->
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+{% endblock %}
